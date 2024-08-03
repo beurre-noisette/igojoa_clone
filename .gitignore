@@ -1,6 +1,21 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,eclipse,visualstudiocode,maven,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,eclipse,visualstudiocode,maven,java
 
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!src/
+!src/**
+!README.md
+!pom.xml
+
+# Ignore specific files even if they're in src/
+**/application-aws.properties
+
+# Original .gitignore content starts here
+
 ### Eclipse ###
 .metadata
 bin/
