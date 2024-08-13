@@ -36,17 +36,6 @@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
 <link rel="stylesheet" href="${placeDetailCssUrl}" />
 <link rel="stylesheet" href="${navbarCssUrl}" />
 <link rel="stylesheet" href="${darkmode}">
-
-<!-- Google tag (gtag.js) -->
-<script async
-	src="https://www.googletagmanager.com/gtag/js?id=G-7PBMC2VKTH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7PBMC2VKTH');
-</script>
 </head>
 <body>
 	<header>

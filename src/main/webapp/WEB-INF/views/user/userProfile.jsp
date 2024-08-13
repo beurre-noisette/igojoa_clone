@@ -43,19 +43,6 @@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
 <link rel="icon" type="image/png" sizes="16x16" href="${ favicon1616 }">
 <c:url var="webmanifest" value="/favicon/site.webmanifest" />
 <link rel="manifest" href="${ webmanifest }">
-
-<!-- Google tag (gtag.js) -->
-<script async
-	src="https://www.googletagmanager.com/gtag/js?id=G-7PBMC2VKTH"></script>
-<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag() {
-		dataLayer.push(arguments);
-	}
-	gtag('js', new Date());
-
-	gtag('config', 'G-7PBMC2VKTH');
-</script>
 </head>
 <body>
 	<header><%@ include file="../header.jspf"%></header>
