@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class S3Service {
-    private String bucketName = "igojoa";
+    private String bucketName = "igojoaclone";
     private final AmazonS3 amazonS3;
     private final UsersDao usersDao;
 
@@ -52,7 +52,7 @@ public class S3Service {
             Users newUser = Users.builder()
                     .userId(user.getUserId()).password(user.getPassword()).email(user.getEmail())
                     .phoneNumber(user.getPhoneNumber()).nickName(user.getNickName())
-                    .userProfileUrl(defaultImageUrl).userProfileName("default.jpg")
+                    .userProfileUrl(defaultImageUrl).userProfileName("default.png")
                     .build();
 
             return newUser;
@@ -72,8 +72,8 @@ public class S3Service {
 
     // TODO S3에서 이미지 삭제하는 메서드(private)
     private void deleteImageFromS3(String imageName) {
-        if (imageName != null && !imageName.equals("default.jpg")) {
-            amazonS3.deleteObject(new DeleteObjectRequest("igojoa", imageName));
+        if (imageName != null && !imageName.equals("default.png")) {
+            amazonS3.deleteObject(new DeleteObjectRequest(bucketName, imageName));
         }
     }
 
@@ -81,7 +81,7 @@ public class S3Service {
     // 메서드(public)
     public String updateProfileImage(MultipartFile newImage, Users user) {
         // 현재 프로필 이미지가 default가 아닌 경우 삭제
-        if (!user.getUserProfileName().equals("default.jpg")) {
+        if (!user.getUserProfileName().equals("default.png")) {
             deleteImageFromS3(user.getUserProfileName());
         }
 
@@ -104,13 +104,13 @@ public class S3Service {
 
         String defaultImage = getUserProfileDefaultImageUrl();
 
-        user.setUserProfileName("default.jpg");
+        user.setUserProfileName("default.png");
         user.setUserProfileUrl(defaultImage);
 
         usersDao.updateProfileImage(user);
     }
 
     public String getUserProfileDefaultImageUrl() {
-        return amazonS3.getUrl(bucketName, "default.jpg").toString();
+        return amazonS3.getUrl(bucketName, "default.png").toString();
     }
 }

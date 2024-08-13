@@ -13,15 +13,11 @@
 	<!-- bean definitions here -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName"
-			value="com.mysql.cj.jdbc.Driver" />
-		<!-- <property name="jdbcUrl"
-			value="jdbc:mysql://igojoa.c3gagc46czkf.ap-northeast-2.rds.amazonaws.com:3306/igojoa" />
-		<property name="username" value="igojoa" />
-		<property name="password" value="igojoa" /> -->
+			value="${jdbc.driverClassName}" />
 		<property name="jdbcUrl"
-			value="jdbc:mysql://localhost:3306/igojoa_clone" />
-		<property name="username" value="root" />
-		<property name="password" value="gmrQksek@0816" />
+			value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
 	</bean>
 	<bean id="ds" class="com.zaxxer.hikari.HikariDataSource">
 		<constructor-arg ref="hikariConfig" />

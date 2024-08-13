@@ -27,7 +27,7 @@ public class AwsS3Config {
         AWSCredentials awsCredentials = new BasicAWSCredentials(accessKey, secretKey);
 
         return AmazonS3ClientBuilder.standard()
-                .withRegion(Regions.AP_NORTHEAST_2) // 서울 리전으로 설정
+                .withRegion(Regions.AP_SOUTHEAST_2)
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
                 .build();
     }

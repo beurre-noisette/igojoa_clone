@@ -157,7 +157,7 @@ public class UsersRestController {
 	public ResponseEntity<String> deleteProfileImage() {
 		s3Service.setDefaultImage(getUserIdFromSession(session));
 		
-		String defaultUrl = "https://igojoa.s3.ap-northeast-2.amazonaws.com/default.jpg";
+		String defaultUrl = "https://igojoaclone.s3.ap-southeast-2.amazonaws.com/%EC%9C%A0%EC%A0%80%EC%9D%B4%EB%AF%B8%EC%A7%80/default.png";
 		
 		return ResponseEntity.ok(defaultUrl);
 	}
